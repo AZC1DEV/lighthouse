@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+  <head> 
+    <title>Lighthouse | DASHBOARDS</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="<?=base_url()?>application/assets/sneat/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="<?=base_url()?>application/assets/sneat/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="<?=base_url()?>application/assets/sneat/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="<?=base_url()?>application/assets/sneat/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet" href="<?=base_url()?>application/assets/sneat/vendor/libs/apex-charts/apex-charts.css" />
+    <script src="<?=base_url()?>application/assets/sneat/vendor/js/helpers.js"></script>
+    <script src="<?=base_url()?>application/assets/sneat/js/config.js"></script>
+  </head>
+
+
+
+
+  <body>
+
+    <input type="hidden" id="base_url" value="<?=base_url()?>">
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="demo-inline-spacing">
+                  <div class="spinner-border spinner-border-lg text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+            </div>
+            <span class="flex-grow-1 align-middle">loading...</span>
+        </div>
+    </div>
+
+    
+
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+       
+        <div id="menu">
+          <?php 
+          echo $menu;
+          ?>
+        </div>
+       
+        <div class="layout-page">
+
+          <nav 
+                class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+                id="layout-navbar"
+              >
+            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                <i class="bx bx-menu bx-sm"></i>
+              </a>
+            </div>
+
+            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+              <!-- Search -->
+              <div class="navbar-nav align-items-center">
+             
+              </div>
+              <!-- /Search -->
+
+              <ul class="navbar-nav flex-row align-items-center ms-auto">
+         
+
+              </ul>
+            </div>
+          </nav>
+
+        
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <div class="row">
+                <div class="col-lg-12 mb-4 order-0">
+                  <div class="card">
+                    <div class="d-flex align-items-end row">
+                      <div class="col-sm-7">
+                        <div class="card-body">
+                          <h5 class="card-title text-primary">AZC1 DEV Dashboards 👍</h5>
+                          <p class="mb-4">
+                            <div id="txt"></div>
+                          </p>
+
+                        </div>
+                      </div>
+                      <div class="col-sm-5 text-center text-sm-left">
+                        <div class="card-body pb-0 px-0 px-md-4">
+                          <img
+                            src="<?=base_url()?>application/assets/sneat/img/illustrations/man-with-laptop-light.png"
+                            height="140"
+                            alt="View Badge User"
+                            data-app-dark-img="illustrations/man-with-laptop-dark.png"
+                            data-app-light-img="illustrations/man-with-laptop-light.png"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            
+                <div class="col-12 col-lg-12 order-2 order-md-3 order-lg-2 mb-4">
+                  <div class="card">
+                    <div class="row row-bordered g-0">
+                      <div class="col-md-12">
+                        <h5 class="card-header m-0 me-2 pb-3">poolpos [DO To NHSO]</h5>
+                        <div id="totalRevenueChart" class="px-2"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-lg-12 order-2 order-md-3 order-lg-2 mb-4">
+                  <div class="card">
+                    <div class="row row-bordered g-0">
+                      <div class="col-md-8">
+                        <div class="card h-100">
+                          <div class="card-body px-0">
+                            <div class="tab-content p-0">
+                              <div class="tab-pane fade show active" id="navs-tabs-line-card-income" role="tabpanel">
+                                <div class="d-flex p-4 pt-3">
+                                  <div class="avatar flex-shrink-0 me-3">
+                                    <span class="avatar-initial rounded bg-label-info"><i class="bx bx-store"></i></span>
+                                  </div>
+                                  <div>
+                                    <small class="text-muted d-block">Stock Process Daily SVMI (new 7)</small>
+                                    <div class="d-flex align-items-center">
+                                      <h6 class="mb-0 me-1" id="stock_procrss_latest_date">loading..</h6>
+                                      <div id="stock_up_ratio">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div id="incomeChart"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="card h-100">
+                          <div class="card-body">
+                            <small class="card-header m-0 me-2 pb-3">since 2023-09-29</small>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                              <div class="d-flex flex-column align-items-center gap-1">
+                                
+                                <h2 class="mb-2"id="total_procrss_all">loading..</h2>
+                                <span>Total Process </span>
+                              </div>
+                              <div id="orderStatisticsChart"></div>
+                            </div>
+                            <ul class="p-0 m-0">
+                              <li class="d-flex mb-4 pb-1">
+                                  <div class="avatar flex-shrink-0 me-3">
+                                    <span class="avatar-initial rounded bg-label-success"><i class="bx bx-check-circle"></i></span>
+                                  </div>
+                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                  <div class="me-2">
+                                    <h6 class="mb-0">Success</h6>
+                                  </div>
+                                  <div class="user-progress d-flex align-items-center gap-1">
+                                    <h6 class="mb-0" id="total_peocess_success">loading..</h6>
+                                    <span class="text-muted">Transaction</span>
+                                  </div>
+                                </div>
+                              </li>
+                              <li class="d-flex mb-4 pb-1">
+                                  <div class="avatar flex-shrink-0 me-3">
+                                    <span class="avatar-initial rounded bg-label-warning"><i class="bx bx-error-alt"></i></span>
+                                  </div>
+                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                  <div class="me-2">
+                                
+                                    <h6 class="mb-0">Issue</h6>
+                                  </div>
+                                  <div class="user-progress d-flex align-items-center gap-1">
+                                    <h6 class="mb-0" id="total_peocess_issue">loading..</h6>
+                                    <span class="text-muted">Transaction</span>
+                                    
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      
+                      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- <div class="col-12 col-lg-4 order-2 order-md-3 order-lg-2 mb-4">
+                  <div class="card">
+                    <div class="row row-bordered g-0">
+                      <div class="col-md-12">
+
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+                <div class="col-12 col-lg-12 order-2 order-md-3 order-lg-2 mb-4">
+                  <div class="card">
+                    <div class="row row-bordered g-0">
+                      <div class="col-md-12">
+                        <h5 class="card-header m-0 me-2 pb-3">API Transactions</h5>
+                        <div style="margin:8px">
+                          <canvas id="bar_chart" height="150" width="650"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              
+              </div>
+            </div>
+            <!-- / Content -->
+            <div class="content-backdrop fade"></div>
+          </div>
+        
+        </div>
+       
+
+      </div>
+
+
+    </div>
+
+
+ 
+
+
+
+    <script src="<?=base_url()?>application/assets/sneat/vendor/libs/jquery/jquery.js"></script>
+    <script src="<?=base_url()?>application/assets/sneat/vendor/libs/popper/popper.js"></script>
+    <script src="<?=base_url()?>application/assets/sneat/vendor/js/bootstrap.js"></script>
+    <script src="<?=base_url()?>application/assets/sneat/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="<?=base_url()?>application/assets/sneat/vendor/libs/apex-charts/apexcharts.js"></script>
+    <script src="<?=base_url()?>application/assets/dashboards/js/dash_main.js"></script>
+    <script src="<?=base_url()?>application/assets/dashboards/js/dash_poolpos.js"></script>
+    <script src="<?=base_url()?>application/assets/dashboards/js/dash_stock_svmi_process.js"></script>
+
+    <script src="<?=base_url()?>application/assets/dashboards/chartjs/Chart.bundle.js"></script>
+    <script src="<?=base_url()?>application/assets/dashboards/js/dash_api_transactions_tms.js"></script>
+
+    <script src="<?=base_url()?>application/assets/sneat/vendor/js/menu.js"></script>
+
+
+
+    <script src="<?=base_url()?>application/assets/sneat/js/main.js"></script>
+
+ 
+
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </body>
+</html>
